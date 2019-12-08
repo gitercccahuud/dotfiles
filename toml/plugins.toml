@@ -1,0 +1,53 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+
+[[plugins]]
+repo = 'Shougo/vimfiler'
+
+[[plugins]]
+repo = 'billyvg/tigris.nvim'
+on_ft = ['javascript','javascript.jsx']
+
+[[plugins]]
+repo = 'tyru/skk.vim'
+
+[[plugins]]
+repo = 'vim-jp/autofmt'
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+
+[[plugins]]
+repo = 'kannokanno/previm'
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+
+[[plugins]]
+repo='basyura/TweetVim'
+
+[[plugins]]
+repo='basyura/twibill.vim'
+[[plugins]]
+repo='h1mesuke/unite-outline'
+[[plugins]]
+repo='basyura/bitly.vim'
+[[plugins]]
+repo='Shougo/unite.vim'
+[[plugins]]
+repo='Shougo/vimproc'
+[[plugins]]
+repo='mattn/favstar-vim'
+
+
+[[plugins]]
+repo='justmao945/vim-clang'
+
+[[plugins]]
+repo='tpope/vim-surround'
