@@ -13,6 +13,11 @@ set autoread
 set hidden
 " 入力中のコマンドをステータスに表示する
 set showcmd
+"ファイルのカーソルがあった場所を記憶する
+augroup vimrcEx
+    au BufRead * if line("'\"") > 0 && line("'\"") <= line("$") |
+                \ exe "normal g`\"" | endif
+augroup END
 
 
 " 見た目系
@@ -53,11 +58,17 @@ set virtualedit=onemore
 
 "カラースキーム
 "コメントを読みやすく
-autocmd ColorScheme * highlight Comment ctermfg=3
+autocmd ColorScheme * highlight Comment ctermfg=220
+"autocmd ColorScheme * highlight Statement ctermfg=160
 
 syntax on
 colorscheme molokai
 set t_Co=256
+"スクロールで色が変わるのを無向
+if &term =~ '256color'
+    set t_ut=
+endif
+
 
 " Tab系
 " Tab文字を半角スペースにする
@@ -66,7 +77,6 @@ set expandtab
 set tabstop=4
 " 行頭でのTab文字の表示幅
 set shiftwidth=4
-let g:indentLine_char = '|'
 
 
 " 検索系
@@ -83,48 +93,6 @@ set hlsearch
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
-"about winresizer
-let g:winresizer_vert_resize = 1
-let g:winresizer_horiz_resize = 1
-
-"about ale and linter
-let g:ale_linters={
-	\'javascript':['eslint'],
-	\'tex':['textlint'],
-	\'markdown':['textlint'],
-	\'css':['sytlelint'],
-	\'c':['gcc'],
-	\'cpp':['gcc'],
-	\'perl':['perl-critic'],
-	\}
-"let g:lightline.component_expand = {
-"	\  'linter_checking': 'lightline#ale#checking',
-"	\  'linter_infos': 'lightline#ale#infos',
-"	\  'linter_warnings': 'lightline#ale#warnings',
-"	\  'linter_errors': 'lightline#ale#errors',
-"	\  'linter_ok': 'lightline#ale#ok',
-"	\ }
-"let g:lightline.component_type = {
-"	\     'linter_checking': 'right',
-"	\     'linter_infos': 'right',
-"	\     'linter_warnings': 'warning',
-"	\     'linter_errors': 'error',
-"	\     'linter_ok': 'right',
-"	\ }
-"let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ]] }
-
-	let g:ale_sign_column_always=1
-	let g:ale_sign_error = '!!'
-	let g:ale_sign_warning= '=='
-	highlight clear ALEErrorSign
-	highlight clear ALEWarningSign
-
-
-	"about lightline
-let g:lightline={
-		\'colorscheme':'wombat'
-	\}
-
 
 "dein Scripts-----------------------------
 if &compatible
@@ -132,12 +100,12 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/c/Users/USER/.vim/dein//repos/github.com/Shougo/dein.vim
+set runtimepath+=/home/gitercccahuud/.vim/dein/repos/github.com/Shougo/dein.vim
 
 
 " Required:
-if dein#load_state('/c/Users/USER/.vim/dein/')
-  call dein#begin('/c/Users/USER/.vim/dein/')
+if dein#load_state('/home/gitercccahuud/.vim/dein/')
+  call dein#begin('/home/gitercccahuud/.vim/dein/')
 
 
 	let g:config_dir = expand('~/.vim/dein/userconfig/')
